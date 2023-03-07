@@ -5,8 +5,11 @@
  
  To use the program:
   -Add a meal with the add meal button
+  
   -Put the number of that meal in the text box next to the edit meal button (1)
+  
   -When the new form opens, press the Add Food button and enter the data requested
+  
   -if you had more than one of that foor item, put the number ascociated in the text box (1 if its the only one) then click the Add One Food item, or Remove one, depending on what you want.
   
 Thats it
