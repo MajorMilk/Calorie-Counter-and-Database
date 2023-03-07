@@ -1,0 +1,12 @@
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\bin\Release\CalorieCountingHelper.exe.config
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\bin\Release\CalorieCountingHelper.exe
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\bin\Release\CalorieCountingHelper.pdb
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.csproj.AssemblyReference.cache
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.csproj.SuggestedBindingRedirects.cache
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.EditDayForm.EditMealForm.resources
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.DailyCountForm.resources
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.Properties.Resources.resources
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.csproj.GenerateResource.cache
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.csproj.CoreCompileInputs.cache
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.exe
+C:\Users\Will\source\repos\CalorieCountingHelper\CalorieCountingHelper\obj\Release\CalorieCountingHelper.pdb
