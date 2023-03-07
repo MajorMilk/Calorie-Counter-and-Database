@@ -1,7 +1,7 @@
 # Calorie-Counter-and-Database
  ![CalorieCountingHelper_QZEQ0BxbLk](https://user-images.githubusercontent.com/115612092/223562014-5eba8a12-7b24-49e7-8aa1-7907ab5e8030.png)
  
- Program functionality is pretty limited at the moment, however I have plans to update this with some kind of data analysis tool that will allow you to compare you last week of activity compared to some goal. I also plan to add more variables to the food item class to add nutrition facts.
+ Program functionality is pretty limited at the moment, however I have plans to update this with some kind of data analysis tool that will allow you to compare your last week of activity compared to some goal. I also plan to add more variables to the food item class to add nutrition facts.
  
  To use the program:
   -Add a meal with the add meal button
