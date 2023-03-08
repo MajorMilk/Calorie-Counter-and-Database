@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CalorieCountingHelper.Objects
 {
-    public class DayOfFood
+
+
+    [Serializable()]
+    public class DayOfFood : ISerializable
     {
         public List<Meal> Meals = new List<Meal>();
 
-        public int Calories { get; private set; }
+        public int Calories { get; set; }
         public string FilePath { get; set; }
 
-        public string Date { get; private set; }
-        
-        public string Month { get; private set; }
+        public string Date { get; set; }
+
+        public string Month { get; set; }
 
         public DayOfFood(string date)
         {
@@ -27,6 +29,13 @@ namespace CalorieCountingHelper.Objects
             this.Month = Helpers.months[dateIndex];
             this.FilePath = Helpers.FilePathFromDate(date);
         }
+        public DayOfFood() 
+        {
+            this.Calories = 0;
+            this.FilePath = "";
+            this.Date = "";
+            this.Month = "";
+        }
 
 
         public int CountCalories()
@@ -34,7 +43,7 @@ namespace CalorieCountingHelper.Objects
             int t = 0;
             foreach (Meal meal in Meals)
             {
-                foreach(FoodItem fi in meal.Contents)
+                foreach (FoodItem fi in meal.Contents)
                 {
                     t += fi.Calories;
                 }
@@ -61,11 +70,11 @@ namespace CalorieCountingHelper.Objects
         }
         public static DayOfFood operator -(DayOfFood a, int i)
         {
-            
+
             a.Calories -= a.Meals[i].Calories;
             a.Meals.RemoveAt(i);
             a.SaveDay();
-            
+
             return a;
         }
 
@@ -84,77 +93,26 @@ namespace CalorieCountingHelper.Objects
 
         public void SaveDay()
         {
-            string[] lines = this.ToString().Split('\n');
-            if(!Directory.Exists(Path.GetDirectoryName(this.FilePath)))
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(this.FilePath));
-            }
-            File.WriteAllLines(this.FilePath, lines);
+            Helpers.TryWriteDay(this, FilePath);
         }
 
-        public DayOfFood(string[] FileData, string date)
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            DayOfFood temp = new DayOfFood(date);
-
-            List<int> mealIndexs = new List<int>();
-
-            for (int i = 0; i < FileData.Length; i++)
-            {
-                if (FileData[i].Contains(':'))
-                    mealIndexs.Add(i);
-            }
-
-            FoodItem fi = new FoodItem();
-            Meal m = new Meal();
-
-
-            for (int i = 0; i < mealIndexs.Count; i++)
-            {
-                m = new Meal();
-                if (i < mealIndexs.Count - 1)
-                {
-                    for (int j = mealIndexs[i] + 1; j < mealIndexs[i + 1]; j++)
-                    {
-                        fi = new FoodItem();
-                        string line = FileData[j];
-                        string[] brokenLine = line.Split('-');
-
-                        string name = brokenLine[0].Trim();
-
-                        string tempCal = brokenLine[1].Trim();
-                        tempCal = tempCal.Split(' ')[0];
-                        int calories = int.Parse(tempCal);
-                        int ammount = int.Parse(brokenLine[2].Trim().Substring(1));
-                        fi = new FoodItem(name, calories, ammount);
-                        m += fi;
-                    }
-                    temp += m;
-                }
-                else
-                {
-                    for (int k = mealIndexs[mealIndexs.Count - 1] + 1; k < FileData.Length; k++)
-                    {
-                        fi = new FoodItem();
-                        string line = FileData[k];
-                        string[] brokenLine = line.Split('-');
-
-                        string name = brokenLine[0].Trim();
-                        if (brokenLine.Length < 2) continue;
-                        string tempCal = brokenLine[1].Trim();
-                        tempCal = tempCal.Split(' ')[0];
-                        int calories = int.Parse(tempCal);
-                        int ammount = int.Parse(brokenLine[2].Trim().Substring(1));
-                        fi = new FoodItem(name, calories, ammount);
-                        m += fi;
-                    }
-                    temp += m;
-                }
-            }
-            this.Month = temp.Month;
-            this.FilePath = temp.FilePath;
-            this.Date = temp.Date.Split(' ')[0];
-            this.Meals = temp.Meals;
-
+            info.AddValue("Meals", Meals);
+            info.AddValue("Date", Date);
+            info.AddValue("Calories", Calories);
+            info.AddValue("FilePath", FilePath);
+            info.AddValue("Month", Month);
         }
-    }
+
+        public DayOfFood(SerializationInfo info, StreamingContext context)
+        {
+            Meals = (List<Meal>)info.GetValue("Meals", typeof(List<Meal>));
+            Date = (string)info.GetValue("Date", typeof(string));
+            Calories = (int)info.GetValue("Calories", typeof(int));
+            FilePath = (string)info.GetValue("FilePath", typeof(string));
+            Month = (string)info.GetValue("Month", typeof(string));
+        }
+
+    } 
 }

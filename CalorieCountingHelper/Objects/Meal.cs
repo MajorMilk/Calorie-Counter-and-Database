@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CalorieCountingHelper.Objects
 {
-    public class Meal
+    public class Meal : ISerializable
     {
         public List<FoodItem> Contents = new List<FoodItem>();
 
-        public int Calories { get; private set; }
+        public int Calories { get; set; }
 
         public Meal(FoodItem f) 
         {
@@ -89,6 +90,15 @@ namespace CalorieCountingHelper.Objects
             return "";
         }
 
-        
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("FoodItems", Contents);
+            info.AddValue("Calories", Calories);
+        }
+        public Meal(SerializationInfo info, StreamingContext context)
+        {
+            Contents = (List<FoodItem>)info.GetValue("FoodItems", typeof(List<FoodItem>));
+            Calories = (int)info.GetValue("Calories", typeof(int));
+        }
     }
 }

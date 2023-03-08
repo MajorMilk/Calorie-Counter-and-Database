@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,11 +40,14 @@ namespace CalorieCountingHelper
         /// </summary>
         private void UpdateCurrentDayOfFood()
         {
-            if (Helpers.DataExists(currentDate))
+            string filepath = Helpers.FilePathFromDate(currentDate);
+            if(!Helpers.DataExists(currentDate))
             {
-                string filepath = Helpers.FilePathFromDate(currentDate);
-                string[] lines = Helpers.ReadAllLinesFromFile(filepath);
-                currentDayOfFood = new DayOfFood(lines, currentDate);
+                Directory.CreateDirectory(Path.GetDirectoryName(filepath));
+            }
+            if (Helpers.TryLoadDay(filepath, out DayOfFood day))
+            {
+                currentDayOfFood = day;
                 SetBoxes();
             }
             else
@@ -140,6 +144,11 @@ namespace CalorieCountingHelper
         }
 
         private void DailyCountForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void DailyCountForm_Load(object sender, EventArgs e)
         {
 
         }
