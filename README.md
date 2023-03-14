@@ -1,17 +1,19 @@
 # Calorie-Counter-and-Database
- ![CalorieCountingHelper_QZEQ0BxbLk](https://user-images.githubusercontent.com/115612092/223562014-5eba8a12-7b24-49e7-8aa1-7907ab5e8030.png)
- 
- Program functionality is pretty limited at the moment, however I have plans to update this with some kind of data analysis tool that will allow you to compare your last week of activity compared to some goal. I also plan to add more variables to the food item class to add nutrition facts.
- 
- To use the program:
-  -Add a meal with the add meal button
-  
-  -Put the number of that meal in the text box next to the edit meal button (1)
-  
-  -When the new form opens, press the Add Food button and enter the data requested
-  
-  -if you had more than one of that foor item, put the number ascociated in the text box (1 if its the only one) then click the Add One Food item, or Remove one, depending on what you want.
-  
-Thats it
 
-To look back upon previous data, simply click a new date on the calendar.
+
+## Huge update!
+Just got done with the WPF Port / remake. Works essentially the same but has a much better UI and adds the ability to Save Meals and food items independantly.
+I still havent gotten around to the data analysis tool, but that will come next.
+
+### Usage
+
+![mlOSNDDjb6](https://user-images.githubusercontent.com/115612092/224894030-f190bd82-e95b-41fa-9222-932bd401cd90.png)
+
+Everything starts at the home From it you can add new meals, or edit existing ones or load / save them.
+
+Start by adding a meal, then click on it. From there you'll be able to press the edit meal button.
+
+![CAfUSkxhcK](https://user-images.githubusercontent.com/115612092/224894433-5af0c9aa-2455-477d-98fe-e5450c813349.png)
+
+From the edit meal screen, start by entering the information about your food item in the appropriate slots, then press add (or save) food. All files for this program are saved as
+XML files located at EXE\DATA

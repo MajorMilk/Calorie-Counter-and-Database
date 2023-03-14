@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="FitnessTracker.Controls.HomeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FitnessTracker.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#333333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="640"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <!--Where Meals are shown-->
+        <Grid Grid.Row="1" Grid.Column="0" Name="MealGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+
+            <Button Name="AddMealButton" FontFamily="Dosis" Content="Add Meal" Foreground="White" FontSize="22" Background="#333333" BorderBrush="Azure" Click="AddMealButton_Click"/>
+            <Button Grid.Row="1" Name="RemoveMealButton" FontFamily="Dosis" Content="Remove Meal" Foreground="White" FontSize="22" Background="#333333" BorderBrush="Azure" Click="RemoveMealButton_Click"/>
+            <Button Grid.Row="2" Name="EditMealButton" FontFamily="Dosis" Content="Edit Meal" Foreground="White" FontSize="22" Background="#333333" BorderBrush="Azure" Click="EditMealButton_Click"/>
+            <Button Grid.Row="3" Name="LoadFoodButton" FontFamily="Dosis" Content="Load Meal" Foreground="White" Background="#333333" FontSize="22" BorderBrush="White" Click="LoadFoodButton_Click" />
+            <TextBlock Grid.Row="4" Name="CalBlock" FontFamily="Dosis" Text="Calories: " Foreground="White" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <ListBox Grid.Column="0" x:Name="HomeContent" Background="#333333" Width="640"/>
+    </Grid>
+
+</UserControl>
