@@ -1,6 +1,5 @@
 # Calorie-Counter-and-Database
 
-
 ## Huge update!
 Just got done with the WPF Port / remake. Works essentially the same but has a much better UI and adds the ability to Save Meals and food items independantly.
 I still havent gotten around to the data analysis tool, but that will come next.
