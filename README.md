@@ -1,7 +1,7 @@
 # Calorie-Counter-and-Database
 
 ## Huge update!
-Just got done with the WPF Port / remake. Works essentially the same but has a much better UI and adds the ability to Save Meals and food items independantly.
+Just got done with the WPF Port / remake. Works essentially the same but has a much better UI and adds the ability to Save Meals and food items independently.
 I still havent gotten around to the data analysis tool, but that will come next.
 
 ### Usage
@@ -14,5 +14,4 @@ Start by adding a meal, then click on it. From there you'll be able to press the
 
 ![CAfUSkxhcK](https://user-images.githubusercontent.com/115612092/224894433-5af0c9aa-2455-477d-98fe-e5450c813349.png)
 
-From the edit meal screen, start by entering the information about your food item in the appropriate slots, then press add (or save) food. All files for this program are saved as
-XML files located at EXE\DATA
+From the edit meal screen, start by entering the information about your food item in the appropriate slots, then press add (or save) food. All files for this program are saved as XML files located at EXE\DATA
